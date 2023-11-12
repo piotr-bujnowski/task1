@@ -19,13 +19,38 @@ public class Address {
     private String id;
 
     @Column(name = "zip_code")
+    @Pattern(regexp = "^[0-9\\-]$")
+    @NotEmpty
     private String zipCode;
 
+    @Size(min = 1, max = 30)
+    @Pattern(regexp = "^[a-zA-Z]$")
+    @NotEmpty
     private String street;
-    private String number;
+
+    @Size(min = 8, max = 8)
+    @Pattern(regexp = "^[0-9]$")
+    @NotEmpty
+    private int number;
+
+    @Size(min = 1, max = 35)
+    @Pattern(regexp = "^[a-zA-Z]$")
+    @NotEmpty
     private String complement;
+
+    @Size(min = 1, max = 35)
+    @Pattern(regexp = "^[a-zA-Z]$")
+    @NotEmpty
     private String district;
+
+    @Size(min = 1, max = 50)
+    @Pattern(regexp = "^[a-zA-Z]$")
+    @NotEmpty
     private String city;
+
+    @Size(min = 1, max = 50)
+    @Pattern(regexp = "^[a-zA-Z]$")
+    @NotEmpty
     private String state;
 
     @Column(name = "created_at")
