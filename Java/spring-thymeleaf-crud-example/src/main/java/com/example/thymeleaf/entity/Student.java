@@ -19,6 +19,9 @@ public class Student {
     @Id
     private String id;
 
+    @Size(min = 1, max = 35)
+    @Pattern(regexp = "^[0-9\\-]$")
+    @NotEmpty
     private String name;
     private String email;
     private LocalDate birthday;
@@ -29,7 +32,7 @@ public class Student {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true) @Size(min = 3, max = 60)
     private Address address;
 
     @PrePersist
